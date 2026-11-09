@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>zh-Hans</string>
+    <key>CFBundleDisplayName</key>
+    <string>用 MacCopy 复制</string>
+    <key>CFBundleName</key>
+    <string>MacCopyService</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.maccopy.MacCopyService</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.1.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>13.0</string>
+    <!-- Service 进程不显示 Dock 图标 -->
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSService</key>
+    <dict>
+        <key>NSMessage</key>
+        <string>用 MacCopy 复制</string>
+        <key>NSRequiredContext</key>
+        <dict>
+            <key>NSApplicationIdentifier</key>
+            <string>com.maccopy.MacCopy</string>
+        </dict>
+        <key>NSSendFileTypes</key>
+        <array>
+            <string>public.item</string>
+        </array>
+    </dict>
+</dict>
+</plist>

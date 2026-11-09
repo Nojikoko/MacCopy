@@ -1,0 +1,95 @@
+﻿# key	en	zh-Hant	ja	ko	fr	de	es
+ui.degraded.title	Some files were not content-hashed; consistency with the source cannot be proven	部分檔案未做內容雜湊，無法證明與來源一致	一部のファイルは内容ハッシュが未実施で、ソースとの一致を証明できません	일부 파일의 콘텐츠 해시가 수행되지 않아 원본과의 일치를 증명할 수 없습니다	Certains fichiers n'ont pas été hachés ; la conformité à la source ne peut être prouvée	Einige Dateien wurden nicht gehasht; Übereinstimmung mit der Quelle ist nicht belegbar	Algunos archivos no tienen hash de contenido; no se puede probar la coincidencia con el origen
+ui.destination.empty	No destination folder selected yet	尚未選擇目標資料夾	宛先フォルダーが未選択です	대상 폴더가 아직 선택되지 않았습니다	Aucun dossier de destination sélectionné	Noch kein Zielordner ausgewählt	Aún no se ha seleccionado una carpeta de destino
+ui.drop.choose	or click to choose…	或點此選擇…	またはクリックして選択…	또는 클릭하여 선택…	ou cliquez pour choisir…	oder zum Auswählen klicken…	o haga clic para elegir…
+ui.drop.hint	Drop files or folders here	把檔案或資料夾拖到這裡	ファイルやフォルダーをここにドロップ	파일이나 폴더를 여기로 끌어다 놓으세요	Déposez des fichiers ou dossiers ici	Dateien oder Ordner hier ablegen	Arrastre archivos o carpetas aquí
+ui.duration.unknown	Calculating	計算中	計算中	계산 중	Calcul en cours	Wird berechnet	Calculando
+ui.eta	%@ remaining	剩餘 %@	残り %@	%@ 남음	%@ restantes	%@ verbleibend	%@ restante
+ui.history.empty	No history yet	暫無歷史記錄	履歴はまだありません	기록이 없습니다	Aucun historique	Noch kein Verlauf	Sin historial todavía
+ui.history.recent	Recent transfers	最近的傳輸	最近の転送	최근 전송	Transferts récents	Letzte Übertragungen	Transferencias recientes
+ui.history.title	History	歷史記錄	履歴	기록	Historique	Verlauf	Historial
+ui.inspector.actual	Destination digest	目標摘要	宛先のダイジェスト	대상 다이제스트	Empreinte de destination	Prüfsumme des Ziels	Resumen de destino
+ui.inspector.algorithm	Algorithm	演算法	アルゴリズム	알고리즘	Algorithme	Algorithmus	Algoritmo
+ui.inspector.algorithms	Algorithms	演算法數	アルゴリズム数	알고리즘 수	Algorithmes	Algorithmen	Algoritmos
+ui.inspector.attempts	Attempts	嘗試次數	試行回数	시도 횟수	Tentatives	Versuche	Intentos
+ui.inspector.buffer	Buffer	緩衝區	バッファー	버퍼	Tampon	Puffer	Búfer
+ui.inspector.bytes	Bytes written	已寫入	書き込み済み字节数	기록된 바이트	Octets écrits	Geschriebene Bytes	Bytes escritos
+ui.inspector.clone	APFS clone	APFS 克隆	APFS クローン	APFS 클론	Clone APFS	APFS-Klon	Clon APFS
+ui.inspector.diffOffset	First differing offset	首個差異偏移	最初の差分位置	첫 차이 오프셋	Premier décalage différent	Erste abweichende Position	Primera posición diferente
+ui.inspector.engine	Engine info	引擎資訊	エンジン情報	엔진 정보	Informations sur le moteur	Engine-Informationen	Información del motor
+ui.inspector.eta	Estimated remaining	預計剩餘	残り時間の目安	예상 남은 시간	Temps restant estimé	Geschätzte Restzeit	Tiempo restante estimado
+ui.inspector.expected	Source digest	來源摘要	ソースのダイジェスト	원본 다이제스트	Empreinte source	Prüfsumme der Quelle	Resumen de origen
+ui.inspector.file	File details	檔案詳情	ファイルの詳細	파일 상세	Détails du fichier	Dateidetails	Detalles del archivo
+ui.inspector.method	Method	方式	方式	방식	Méthode	Methode	Método
+ui.inspector.name	Name	名稱	名前	이름	Nom	Name	Nombre
+ui.inspector.native	Native Swift 6 · arm64 · macOS 13+ · zero third-party dependencies	原生 Swift 6 · arm64 · macOS 13+ · 零第三方依賴	ネイティブ Swift 6 · arm64 · macOS 13+ · サードパーティ依存なし	네이티브 Swift 6 · arm64 · macOS 13+ · 서드파티 의존성 없음	Natif Swift 6 · arm64 · macOS 13+ · aucune dépendance tierce	Nativ Swift 6 · arm64 · macOS 13+ · keine Fremdabhängigkeiten	Nativo Swift 6 · arm64 · macOS 13+ · sin dependencias de terceros
+ui.inspector.overview	Task overview	任務概覽	タスク概要	작업 개요	Vue d'ensemble de la tâche	Aufgabenübersicht	Resumen de la tarea
+ui.inspector.path	Source path	來源路徑	ソースパス	원본 경로	Chemin source	Quellpfad	Ruta de origen
+ui.inspector.result	Result	結果	結果	결과	Résultat	Ergebnis	Resultado
+ui.inspector.reveal	Reveal in Finder	在 Finder 中顯示	Finder で表示	Finder에서 보기	Afficher dans le Finder	Im Finder anzeigen	Mostrar en Finder
+ui.inspector.selectHint	Select a row in the file list to see its path, status and verification details.	在檔案列表中點選一項，檢視路徑、狀態與校驗詳情。	ファイル一覧で行を選択すると、パス・状態・検証の詳細を表示します。	파일 목록에서 항목을 선택하면 경로, 상태, 검증 세부 정보를 볼 수 있습니다.	Sélectionnez une ligne dans la liste pour voir le chemin, l'état et les détails de vérification.	Wählen Sie eine Zeile in der Dateiliste, um Pfad, Status und Prüfdetails zu sehen.	Seleccione una fila en la lista para ver la ruta, el estado y los detalles de verificación.
+ui.inspector.sources	Source items	來源條目	ソース項目	원본 항목	Éléments sources	Quellelemente	Elementos de origen
+ui.inspector.speed	Current speed	目前速度	現在の速度	현재 속도	Vitesse actuelle	Aktuelle Geschwindigkeit	Velocidad actual
+ui.inspector.state	State	狀態	状態	상태	État	Zustand	Estado
+ui.inspector.status	Status	狀態	状態	상태	État	Status	Estado
+ui.inspector.target	Destination	目標	宛先	대상	Destination	Ziel	Destino
+ui.inspector.threads	Effective threads	生效執行緒	有効スレッド数	유효 스레드	Threads effectifs	Wirksame Threads	Hilos efectivos
+ui.inspector.transferred	Transferred	已傳輸	転送済み	전송됨	Transféré	Übertragen	Transferido
+ui.inspector.verify	Verification result	校驗結果	検証結果	검증 결과	Résultat de vérification	Prüfergebnis	Resultado de verificación
+ui.inspector.verifyMode	Verification mode	校驗方式	検証モード	검증 방식	Mode de vérification	Prüfmodus	Modo de verificación
+ui.log.added	Added %d sources	已加入 %d 個來源	%d 個のソースを追加しました	소스 %d개 추가	%d sources ajoutées	%d Quellen hinzugefügt	%d orígenes añadidos
+ui.log.cancelled	Transfer cancelled	已取消傳輸	転送をキャンセルしました	전송 취소됨	Transfert annulé	Übertragung abgebrochen	Transferencia cancelada
+ui.log.finished	Done: %d succeeded, %d failed, %d skipped	完成：成功 %d 項，失敗 %d 項，略過 %d 項	完了：成功 %d 件、失敗 %d 件、スキップ %d 件	완료: 성공 %d, 실패 %d, 건너뜀 %d	Terminé : %d réussis, %d échecs, %d ignorés	Fertig: %d erfolgreich, %d fehlgeschlagen, %d übersprungen	Hecho: %d correctos, %d fallidos, %d omitidos
+ui.log.paused	Paused; unfinished files keep their checkpoints and can be resumed	已暫停，未完成的檔案保留斷點，可繼續傳輸	一時停止しました。未完了のファイルは断点を保持し、再開できます	일시 정지됨. 미완료 파일의 체크포인트가 보존되어 재개할 수 있습니다	En pause ; les fichiers inachevés conservent leur point de reprise	Pausiert; unfertige Dateien behalten ihren Wiederaufnahmepunkt	En pausa; los archivos incompletos conservan su punto de reanudación
+ui.log.resumable	Checkpoint saved: %@	已保存斷點：%@	断点を保存しました：%@	체크포인트 저장됨: %@	Point de reprise enregistré : %@	Wiederaufnahmepunkt gespeichert: %@	Punto de reanudación guardado: %@
+ui.log.resuming	Resuming from checkpoint…	正在從斷點繼續…	断点から再開しています…	체크포인트에서 재개 중…	Reprise depuis le point de sauvegarde…	Wiederaufnahme vom Prüfpunkt…	Reanudando desde el punto de control…
+ui.log.started	Copy started	開始複製	コピーを開始しました	복사 시작	Copie démarrée	Kopiervorgang gestartet	Copia iniciada
+ui.menu.cancel	Cancel transfer	取消傳輸	転送をキャンセル	전송 취소	Annuler le transfert	Übertragung abbrechen	Cancelar transferencia
+ui.menu.start	Start copy	開始複製	コピーを開始	복사 시작	Démarrer la copie	Kopie starten	Iniciar copia
+ui.menu.transfer	Transfer	傳輸	転送	전송	Transfert	Übertragung	Transferencia
+ui.ok	OK	好	OK	확인	OK	OK	Aceptar
+ui.pending.banner	%d unfinished tasks from the last session can be resumed	發現 %d 個上次未完成的任務，可從斷點繼續	前回の未完了タスクが %d 件あります。断点から再開できます	지난 세션의 미완료 작업 %d개를 재개할 수 있습니다	%d tâches inachevées de la session précédente peuvent être reprises	%d unfertige Aufgaben der letzten Sitzung können fortgesetzt werden	%d tareas incompletas de la sesión anterior se pueden reanudar
+ui.pending.go	View	檢視	表示	보기	Voir	Ansehen	Ver
+ui.pro.algorithms	17 checksum algorithms	17 種校驗演算法	17 種類のチェックサムアルゴリズム	체크섬 알고리즘 17종	17 algorithmes de somme de contrôle	17 Prüfsummenalgorithmen	17 algoritmos de suma de comprobación
+ui.pro.automation	Run a script after copying	複製後自動執行腳本	コピー後にスクリプトを自動実行	복사 후 스크립트 자동 실행	Exécuter un script après la copie	Skript nach dem Kopieren ausführen	Ejecutar un script tras la copia
+ui.pro.badge	Pro	Pro	Pro	Pro	Pro	Pro	Pro
+ui.pro.hint	v1.0 shows placeholders only; Pro features are reserved behind a compile-time flag.	v1.0 僅展示占位，Pro 功能透過編譯期開關預留。	v1.0 はプレースホルダーのみ表示します。Pro 機能はコンパイル時フラグで予約されています。	v1.0은 자리표시자만 표시하며 Pro 기능은 컴파일 플래그로 예약되어 있습니다.	La v1.0 n'affiche que des espaces réservés ; les fonctions Pro sont réservées par un indicateur de compilation.	v1.0 zeigt nur Platzhalter; Pro-Funktionen sind über ein Kompilier-Flag reserviert.	v1.0 solo muestra marcadores; las funciones Pro están reservadas tras una opción de compilación.
+ui.pro.html	HTML report export	HTML 報告匯出	HTML レポート書き出し	HTML 보고서 내보내기	Export de rapport HTML	HTML-Berichtsexport	Exportación de informe HTML
+ui.pro.threads	3 or more concurrent threads	3 執行緒及以上並發	3 スレッド以上の並列処理	3개 이상의 동시 스레드	3 threads simultanés ou plus	3 oder mehr parallele Threads	3 o más hilos simultáneos
+ui.progress.bytes	Bytes	位元組	バイト	바이트	Octets	Bytes	Bytes
+ui.progress.files	Files	檔案	ファイル	파일	Fichiers	Dateien	Archivos
+ui.queue.current	Current task	目前任務	現在のタスク	현재 작업	Tâche actuelle	Aktuelle Aufgabe	Tarea actual
+ui.queue.detail	Destination: %@ · %d items	目標：%@ · %d 項	宛先：%@ · %d 件	대상: %@ · %d개	Destination : %@ · %d éléments	Ziel: %@ · %d Elemente	Destino: %@ · %d elementos
+ui.queue.empty	No pending tasks	沒有待恢復的任務	保留中のタスクはありません	대기 중인 작업 없음	Aucune tâche en attente	Keine ausstehenden Aufgaben	No hay tareas pendientes
+ui.queue.go	Go to workspace	前往工作台	ワークスペースへ移動	작업 공간으로 이동	Aller à l'espace de travail	Zum Arbeitsbereich	Ir al espacio de trabajo
+ui.queue.hint	Tasks are written to a persistent queue when created. If the app quits unexpectedly, you can resume here next time; unfinished files use .maccopy.partial checkpoints.	任務在建立時寫入持久化佇列。若應用程式意外結束，下次開啟可從這裡繼續；未完成的檔案透過 .maccopy.partial 斷點續傳。	タスクは作成時に永続キューへ書き込まれます。予期せず終了した場合、次回起動時にここから再開できます。未完了ファイルは .maccopy.partial で断点続行します。	작업은 생성 시 영구 큐에 기록됩니다. 앱이 예기치 않게 종료되면 다음 실행 시 여기서 재개할 수 있으며, 미완료 파일은 .maccopy.partial 체크포인트로 이어집니다.	Les tâches sont écrites dans une file persistante à leur création. Après une fermeture inattendue, vous pouvez reprendre ici ; les fichiers inachevés utilisent les points de reprise .maccopy.partial.	Aufgaben werden beim Anlegen in eine persistente Warteschlange geschrieben. Nach unerwartetem Beenden können Sie hier fortsetzen; unfertige Dateien nutzen .maccopy.partial-Prüfpunkte.	Las tareas se escriben en una cola persistente al crearse. Si la app se cierra inesperadamente, puede reanudar aquí; los archivos incompletos usan puntos de control .maccopy.partial.
+ui.queue.items	sources	個來源	件のソース	개 원본	sources	Quellen	orígenes
+ui.queue.pending	Pending tasks (kept across restarts)	待恢復任務（重啟後自動保留）	保留中のタスク（再起動後も保持）	대기 작업(재시작 후 유지)	Tâches en attente (conservées après redémarrage)	Ausstehende Aufgaben (bleiben nach Neustart erhalten)	Tareas pendientes (se conservan tras reiniciar)
+ui.queue.resume	Resume	繼續	再開	재개	Reprendre	Fortsetzen	Reanudar
+ui.queue.title	Task queue	任務佇列	タスクキュー	작업 대기열	File de tâches	Aufgabenwarteschlange	Cola de tareas
+ui.retryFailed	Retry failed items	重試失敗項	失敗した項目を再試行	실패 항목 재시도	Réessayer les éléments en échec	Fehlgeschlagene Elemente wiederholen	Reintentar elementos fallidos
+ui.row.cloned	APFS clone (instant copy)	APFS 克隆（秒拷）	APFS クローン（瞬時コピー）	APFS 클론(즉시 복사)	Clone APFS (copie instantanée)	APFS-Klon (Sofortkopie)	Clon APFS (copia instantánea)
+ui.section.files	Files (%d)	檔案列表（%d 項）	ファイル一覧（%d 件）	파일 목록(%d개)	Fichiers (%d)	Dateien (%d)	Archivos (%d)
+ui.section.log	Activity log	執行日誌	実行ログ	실행 로그	Journal d'activité	Aktivitätsprotokoll	Registro de actividad
+ui.section.progress	Transfer progress	傳輸進度	転送進度	전송 진행률	Progression du transfert	Übertragungsfortschritt	Progreso de la transferencia
+ui.section.source	Source files	來源檔案	ソースファイル	원본 파일	Fichiers sources	Quelldateien	Archivos de origen
+ui.section.target	Destination	目標位置	宛先	대상 위치	Destination	Ziel	Destino
+ui.settings.algorithms	Checksum algorithms (multiple selection)	校驗演算法（可多選）	チェックサムアルゴリズム（複数選択可）	체크섬 알고리즘(다중 선택)	Algorithmes de somme de contrôle (sélection multiple)	Prüfsummenalgorithmen (Mehrfachauswahl)	Algoritmos de suma de comprobación (selección múltiple)
+ui.settings.buffer	Buffer: %d MiB	緩衝區：%d MiB	バッファー：%d MiB	버퍼: %d MiB	Tampon : %d Mio	Puffer: %d MiB	Búfer: %d MiB
+ui.settings.checksumFile	Generate a checksum manifest (compatible with shasum -c)	產生校驗清單檔案（相容 shasum -c）	チェックサム清單ファイルを生成（shasum -c 対応）	체크섬 매니페스트 생성(shasum -c 호환)	Générer un fichier de sommes de contrôle (compatible shasum -c)	Prüfsummen-Manifest erzeugen (kompatibel mit shasum -c)	Generar un manifiesto de sumas (compatible con shasum -c)
+ui.settings.clone	Enable APFS clone on the same volume (instant copy)	同卷啟用 APFS 克隆（秒拷）	同一ボリュームで APFS 克隆を有効化（瞬時コピー）	동일 볼륨에서 APFS 클론 사용(즉시 복사)	Activer le clone APFS sur le même volume (copie instantanée)	APFS-Klon auf demselben Volume aktivieren (Sofortkopie)	Activar clon APFS en el mismo volumen (copia instantánea)
+ui.settings.conflict	Conflict handling	衝突處理	競合の処理	충돌 처리	Gestion des conflits	Konfliktbehandlung	Gestión de conflictos
+ui.settings.conflictPolicy	When destination exists	目標已存在時	宛先が存在する場合	대상이 이미 존재할 때	Si la destination existe	Wenn das Ziel bereits existiert	Cuando el destino ya existe
+ui.settings.engine	Copy engine	複製引擎	コピーエンジン	복사 엔진	Moteur de copie	Kopier-Engine	Motor de copia
+ui.settings.pro	Pro features	Pro 功能	Pro 機能	Pro 기능	Fonctions Pro	Pro-Funktionen	Funciones Pro
+ui.settings.reset	Restore default settings	恢復預設設定	設定を初期化	기본 설정 복원	Rétablir les réglages par défaut	Standardeinstellungen wiederherstellen	Restaurar ajustes predeterminados
+ui.settings.retries	Retry attempts: %d	失敗重試次數：%d	失敗時の再試行回数：%d	재시도 횟수: %d	Nb de tentatives : %d	Anzahl Wiederholungen: %d	Intentos: %d
+ui.settings.sparse	Sparse files	稀疏檔案	スパースファイル	스파스 파일	Fichiers sparses	Sparse-Dateien	Archivos dispersos
+ui.settings.threads	Concurrent threads: %d	並發執行緒數：%d	並列スレッド数：%d	동시 스레드: %d	Threads simultanés : %d	Parallele Threads: %d	Hilos simultáneos: %d
+ui.settings.threads.hint	Free tier allows up to %d threads; %d are currently effective	免費版最多使用 %d 執行緒，目前實際生效 %d 執行緒	無料版は最大 %d スレッド、現在の有効数は %d です	무료 버전은 최대 %d개 스레드, 현재 유효 스레드 %d개	La version gratuite autorise jusqu'à %d threads ; %d sont actuellement actifs	Die kostenlose Version erlaubt bis zu %d Threads; derzeit wirksam sind %d	La versión gratuita permite hasta %d hilos; %d están activos actualmente
+ui.settings.throttle	Bandwidth limit	速率限制	速度制限	속도 제한	Limitation de débit	Bandbreitenbegrenzung	Límite de velocidad
+ui.settings.throttle.enable	Enable bandwidth limit	啟用限速	速度制限を有効化	속도 제한 사용	Activer la limitation de débit	Bandbreitenbegrenzung aktivieren	Activar límite de velocidad
+ui.settings.timestamps	Preserve file timestamps	保留檔案時間戳	ファイルのタイムスタンプを保持	파일 타임스탬프 보존	Conserver les horodatages des fichiers	Datei-Zeitstempel beibehalten	Conservar marcas de tiempo de archivos
+ui.settings.verification	Integrity verification	完整性校驗	整合性検証	무결성 검증	Vérification d'intégrité	Integritätsprüfung	Verificación de integridad
+ui.settings.verify.hint	Source and destination digests are compared per algorithm. If the source is not seekable and cannot be read back, the result is clearly marked as not content-hashed instead of silently passing.	來源與目標摘要逐演算法比對。若來源不可定址且無法回讀，會明確標注「未做內容雜湊」，不會靜默通過。	ソースと宛先のダイジェストをアルゴリズムごとに比較します。ソースがシーク不可で読み戻せない場合、黙って合格とせず「内容ハッシュ未実施」と明記します。	원본과 대상 다이제스트를 알고리즘별로 비교합니다. 원본이 탐색 불가능하고 재읽기도 불가능하면 조용히 통과시키지 않고 "콘텐츠 해시 미수행"으로 명시합니다.	Les empreintes source et destination sont comparées par algorithme. Si la source n'est pas adressable et ne peut être relue, le résultat est explicitement marqué comme non haché, sans succès silencieux.	Quell- und Zielprüfsummen werden je Algorithmus verglichen. Ist die Quelle nicht positionierbar und nicht zurücklesbar, wird das Ergebnis ausdrücklich als nicht gehasht markiert statt stillschweigend zu bestehen.	Los resúmenes de origen y destino se comparan por algoritmo. Si el origen no es direccionable y no se puede releer, el resultado se marca explícitamente como sin hash en lugar de aprobarse en silencio.
+ui.settings.verifyMode	Verification mode	校驗方式	検証モード	검증 방식	Mode de vérification	Prüfmodus	Modo de verificación

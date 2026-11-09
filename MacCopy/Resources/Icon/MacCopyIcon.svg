@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  MacCopy 应用图标（矢量源）
+
+  设计语言：只表达「动作」，不画具象物件。
+    - 左侧单线进入、中央分叉成右上 / 右下两条  → 拷贝（一分为二）
+    - 青绿圆形徽章内的白色勾                   → 校验（验证通过）
+  刻意不放纸张、折角、文件夹、文档线条，避免把「文件」当成主角。
+
+  画布：1024×1024
+  内容 squircle：x/y = 100..924（824×824），圆角半径 185
+  留白：四周各 100px 透明，符合 macOS Big Sur 之后的图标规范
+  配色：蓝色纵向渐变 #4A9BE8 → #1A6FC0 → #0C447C
+        主体 #FFFFFF / 校验徽章 #1D9E75
+
+  多尺寸 PNG 与 .icns 由 tools/build_icon.sh 从本文件生成。
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+     width="1024" height="1024" role="img">
+  <title>MacCopy</title>
+  <desc>分叉箭头表示复制，圆形对勾表示校验完成</desc>
+
+  <defs>
+    <clipPath id="squircle">
+      <rect x="100" y="100" width="824" height="824" rx="185"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4A9BE8"/>
+      <stop offset="0.52" stop-color="#1A6FC0"/>
+      <stop offset="1" stop-color="#0C447C"/>
+    </linearGradient>
+    <linearGradient id="check" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2DBE90"/>
+      <stop offset="1" stop-color="#0F8A66"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#squircle)">
+    <rect x="100" y="100" width="824" height="824" fill="url(#bg)"/>
+  </g>
+
+  <rect x="102" y="102" width="820" height="820" rx="183" fill="none"
+        stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="4"/>
+
+  <g fill="none" stroke="#FFFFFF" stroke-width="65"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M292 512 H481"/>
+    <path d="M481 512 L639 358"/>
+    <path d="M481 512 L639 666"/>
+  </g>
+
+  <circle cx="716" cy="512" r="104" fill="url(#check)"/>
+  <path d="M670 512 l31 31 l63 -67" fill="none" stroke="#FFFFFF"
+        stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

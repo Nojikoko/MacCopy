@@ -1,0 +1,33 @@
+# key	en	zh-Hant	ja	ko	fr	de	es
+ui.sidebar.history	History	歷史記錄	履歴	기록	Historique	Verlauf	Historial
+ui.sidebar.queue	Task queue	任務佇列	タスクキュー	작업 대기열	File de tâches	Aufgabenwarteschlange	Cola de tareas
+ui.sidebar.quickStart	Quick start	快速開始	クイックスタート	빠른 시작	Démarrage rapide	Schnellstart	Inicio rápido
+ui.sidebar.section.recent	Recent destinations	最近目標	最近の宛先	최근 대상	Destinations récentes	Letzte Ziele	Destinos recientes
+ui.sidebar.section.work	Workspace	工作區	ワークスペース	작업 공간	Espace de travail	Arbeitsbereich	Espacio de trabajo
+ui.sidebar.settings	Settings	設定	設定	설정	Réglages	Einstellungen	Ajustes
+ui.source.count	%d items added	已加入 %d 項	%d 件追加済み	%d개 추가됨	%d éléments ajoutés	%d Elemente hinzugefügt	%d elementos añadidos
+ui.source.empty	No files added yet	尚未加入檔案	ファイルがまだありません	아직 파일이 없습니다	Aucun fichier ajouté	Noch keine Dateien hinzugefügt	Aún no se han añadido archivos
+ui.start	Start copy	開始複製	コピーを開始	복사 시작	Démarrer la copie	Kopie starten	Iniciar copia
+ui.stat.avg	Average speed	平均速度	平均速度	평균 속도	Vitesse moyenne	Durchschnittsgeschwindigkeit	Velocidad media
+ui.stat.failed	Failed	失敗	失敗	실패	Échecs	Fehlgeschlagen	Fallidos
+ui.stat.skipped	Skipped	略過	スキップ	건너뜀	Ignorés	Übersprungen	Omitidos
+ui.stat.success	Succeeded	成功	成功	성공	Réussis	Erfolgreich	Correctos
+ui.summary.line	Done: %d succeeded · %d failed · %d skipped · %@ elapsed	完成：成功 %d 項 · 失敗 %d 項 · 略過 %d 項 · 耗時 %@	完了：成功 %d 件 · 失敗 %d 件 · スキップ %d 件 · 経過 %@	완료: 성공 %d · 실패 %d · 건너뜀 %d · 소요 %@	Terminé : %d réussis · %d échecs · %d ignorés · %@ écoulées	Fertig: %d erfolgreich · %d fehlgeschlagen · %d übersprungen · %@ vergangen	Hecho: %d correctos · %d fallidos · %d omitidos · %@ transcurridos
+ui.verify.failed	Mismatch	不符	不一致	불일치	Non conforme	Abweichung	No coincide
+ui.verify.passed	Passed	通過	合格	통과	Conforme	Bestanden	Correcto
+verification.degraded.noAlgorithm	No checksum algorithm was selected; this copy was not content-hashed	未選擇任何校驗演算法，本次複製未做內容雜湊校驗	チェックサムアルゴリズムが選択されていないため、今回のコピーは内容ハッシュ未検証です	체크섬 알고리즘을 선택하지 않아 이번 복사는 콘텐츠 해시 검증을 하지 않았습니다	Aucun algorithme de somme de contrôle sélectionné ; cette copie n'a pas été hachée	Kein Prüfsummenalgorithmus gewählt; diese Kopie wurde nicht gehasht	No se seleccionó ningún algoritmo de suma; esta copia no tiene hash de contenido
+verification.degraded.readBackFailed	Read-back verification failed; this copy was not content-hashed	回讀校驗失敗，本次複製未做內容雜湊校驗	読み戻し検証に失敗したため、今回のコピーは内容ハッシュ未検証です	재읽기 검증에 실패하여 이번 복사는 콘텐츠 해시 검증을 하지 않았습니다	La vérification par relecture a échoué ; cette copie n'a pas été hachée	Die Rückleseprüfung ist fehlgeschlagen; diese Kopie wurde nicht gehasht	La verificación por relectura falló; esta copia no tiene hash de contenido
+verification.degraded.sourceNotSeekable	The source is not seekable and cannot be read back; this copy was not content-hashed	來源檔案不可定址且無法回讀校驗，本次複製未做內容雜湊校驗	ソースがシーク不可で読み戻せないため、今回のコピーは内容ハッシュ未検証です	원본이 탐색 불가능하고 재읽기도 불가능하여 이번 복사는 콘텐츠 해시 검증을 하지 않았습니다	La source n'est pas adressable et ne peut être relue ; cette copie n'a pas été hachée	Die Quelle ist nicht positionierbar und nicht zurücklesbar; diese Kopie wurde nicht gehasht	El origen no es direccionable y no se puede releer; esta copia no tiene hash de contenido
+ui.settings.language	Interface language	介面語言	インターフェース言語	인터페이스 언어	Langue de l'interface	Oberflächensprache	Idioma de la interfaz
+ui.settings.language.followSystem	Follow system language	跟隨系統語言	システム言語に従う	시스템 언어 따르기	Suivre la langue du système	Systemsprache folgen	Seguir el idioma del sistema
+ui.settings.language.picker	Language	語言	言語	언어	Langue	Sprache	Idioma
+ui.settings.language.current	Active language	目前生效語言	現在の言語	현재 적용 언어	Langue active	Aktive Sprache	Idioma activo
+ui.settings.language.instantHint	Changes take effect immediately; no restart required.	切換後立即生效，無需重啟。	切り替えはすぐに反映され、再起動は不要です。	변경 사항은 즉시 적용되며 재시작이 필요 없습니다.	Les changements prennent effet immédiatement ; aucun redémarrage requis.	Änderungen wirken sofort; kein Neustart erforderlich.	Los cambios se aplican de inmediato; no se requiere reiniciar.
+ui.settings.language.restoreFollow	Follow system again	恢復跟隨系統	システム言語に戻す	시스템 언어로 되돌리기	Revenir à la langue du système	Wieder der Systemsprache folgen	Volver al idioma del sistema
+ui.settings.language.migratedHint	Upgraded from an earlier version; the interface stays in Simplified Chinese.	已從舊版本升級，介面語言保持簡體中文。	旧バージョンからアップグレードしました。画面言語は簡体字中国語のままです。	이전 버전에서 업그레이드되어 인터페이스 언어가 간체 중국어로 유지됩니다.	Mise à niveau depuis une version antérieure ; l'interface reste en chinois simplifié.	Von einer früheren Version aktualisiert; die Oberfläche bleibt auf Chinesisch (vereinfacht).	Actualizado desde una versión anterior; la interfaz permanece en chino simplificado.
+ui.settings.language.unsupportedHint	Your system language is not supported yet; English is shown.	目前系統語言暫未支援，已顯示 English。	お使いのシステム言語は未対応のため、English を表示しています。	현재 시스템 언어는 아직 지원되지 않아 English로 표시됩니다.	La langue de votre système n'est pas encore prise en charge ; English est affiché.	Ihre Systemsprache wird noch nicht unterstützt; English wird angezeigt.	El idioma del sistema aún no es compatible; se muestra English.
+ui.settings.language.sectionHint	This setting only affects interface text, not file contents or verification results.	此設定只影響介面文字，不影響檔案內容與校驗結果。	この設定は画面の文字のみに影響し、ファイルの内容や検証結果には影響しません。	이 설정은 인터페이스 텍스트에만 영향을 주며 파일 내용이나 검증 결과에는 영향을 주지 않습니다.	Ce réglage n'affecte que les textes de l'interface, pas le contenu des fichiers ni les résultats de vérification.	Diese Einstellung betrifft nur die Oberflächentexte, nicht Dateiinhalte oder Prüfergebnisse.	Este ajuste solo afecta al texto de la interfaz, no al contenido de los archivos ni a los resultados de verificación.
+ui.settings.language.followSource	Follow system language	跟隨系統語言	システム言語に従う	시스템 언어 따르기	Suivre la langue du système	Systemsprache folgen	Seguir el idioma del sistema
+ui.settings.language.manualHint	Choose manually	手動選擇	手動で選択	수동 선택	Choisir manuellement	Manuell wählen	Elegir manualmente
+ui.settings.maintenance	Maintenance	維護	メンテナンス	유지관리	Maintenance	Wartung	Mantenimiento
+ui.log.sourceMissing	The following sources do not exist and were ignored: %@	下列來源不存在，已忽略：%@	以下のソースは存在しないため無視されました：%@	다음 소스가 존재하지 않아 무시되었습니다: %@	Les sources suivants n'existent pas et ont été ignorés : %@	Die folgenden Quellen existieren nicht und wurden ignoriert: %@	Los siguientes orígenes no existen y se ignoraron: %@

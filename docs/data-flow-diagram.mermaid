@@ -1,0 +1,17 @@
+%% 数据搬运双路径分界图
+%% 来源：docs/ARCHITECTURE.md
+
+flowchart TD
+    A[FileTransferer.transfer] --> B{同卷 APFS?<br/>enableClone?}
+    B -->|是| C[CloneCopier]
+    B -->|否| D[StreamCopier]
+    C --> E[copyfile via fd<br/>COPYFILE_CLONE]
+    E --> F{WAS_CLONED == 1?}
+    F -->|是| G[标记为已克隆<br/>哈希需回读源]
+    F -->|否 / 返回错误| H[自动回退<br/>StreamCopier]
+    H --> D
+    D --> I[read/write + tee 哈希]
+    G --> J[回读源算哈希<br/>+ 校验目标]
+    I --> J
+    J --> K[写时间戳]
+    K --> L[重命名 .partial → 正式名]

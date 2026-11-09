@@ -1,0 +1,36 @@
+%% 状态机图（任务级 / 文件级）
+%% 来源：docs/ARCHITECTURE.md
+
+stateDiagram-v2
+    direction LR
+    [*] --> Pending: 任务入队
+
+    state "任务状态 TaskState" as T {
+        [*] --> Pending
+        Pending --> Running: 调度器启动
+        Running --> Paused: 用户暂停
+        Paused --> Running: 用户继续
+        Running --> Succeeded: 全部成功
+        Running --> PartialFailed: 存在失败项
+        Running --> Cancelled: 用户取消
+        Pending --> Cancelled: 队列中取消
+        Paused --> Cancelled: 用户取消
+        Succeeded --> [*]
+        PartialFailed --> [*]
+        Cancelled --> [*]
+    }
+
+    state "文件状态 FileStatus" as F {
+        [*] --> Queued
+        Queued --> Transferring: 分配线程
+        Transferring --> Verifying: 数据落盘完成
+        Transferring --> Skipped: 冲突策略=跳过
+        Transferring --> Failed: 复制异常
+        Verifying --> Succeeded: 校验通过
+        Verifying --> Failed: 校验不通过
+        Failed --> Queued: 重试
+        Verifying --> Succeeded
+        Succeeded --> [*]
+        Skipped --> [*]
+        Failed --> [*]
+    }

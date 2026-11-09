@@ -1,0 +1,12 @@
+%% 翻译数据到运行时链路图
+%% 来源：docs/ARCHITECTURE-I18N.md
+
+flowchart LR
+    A["translations/*.json<br/>8 份独立译文"] --> B["sync_catalog.py<br/>--merge-translations"]
+    B --> C["Localizable.xcstrings<br/>单一 Catalog"]
+    C --> D["package_app.sh<br/>--check-languages 前置"]
+    D --> E["8 份 lproj/Localizable.strings"]
+    E --> F["LanguageBundleFactory<br/>Bundle(path: lang.lproj)"]
+    F --> G["LanguageState<br/>NSLock 全局"]
+    G --> H["Localization.string/format<br/>签名冻结"]
+    H --> I["SwiftUI 视图 + MacCopyKit 后台文案"]

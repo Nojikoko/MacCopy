@@ -1,0 +1,103 @@
+{
+  "keyCount": 27,
+  "note": "冻结的 180 条中文基准中含占位符的 key；--check-languages 顺带断言基准签名未漂移",
+  "placeholders": {
+    "error.checksumMismatch": [
+      "%@",
+      "%@",
+      "%@",
+      "%@"
+    ],
+    "error.cloneFailed": [
+      "%@",
+      "%@"
+    ],
+    "error.destinationUnwritable": [
+      "%@"
+    ],
+    "error.diskFull": [
+      "%@",
+      "%@"
+    ],
+    "error.fileBusy": [
+      "%@"
+    ],
+    "error.networkUnavailable": [
+      "%@",
+      "%@"
+    ],
+    "error.pathTooLong": [
+      "%d",
+      "%@"
+    ],
+    "error.permissionDenied": [
+      "%@"
+    ],
+    "error.sourceChangedDuringCopy": [
+      "%@"
+    ],
+    "error.sourceUnreadable": [
+      "%@",
+      "%@"
+    ],
+    "error.unknown": [
+      "%@"
+    ],
+    "error.volumeNotFound": [
+      "%@"
+    ],
+    "filename.copySuffix": [
+      "%d"
+    ],
+    "ui.eta": [
+      "%@"
+    ],
+    "ui.log.added": [
+      "%d"
+    ],
+    "ui.log.finished": [
+      "%d",
+      "%d",
+      "%d"
+    ],
+    "ui.log.resumable": [
+      "%@"
+    ],
+    "ui.log.sourceMissing": [
+      "%@"
+    ],
+    "ui.pending.banner": [
+      "%d"
+    ],
+    "ui.queue.detail": [
+      "%@",
+      "%d"
+    ],
+    "ui.section.files": [
+      "%d"
+    ],
+    "ui.settings.buffer": [
+      "%d"
+    ],
+    "ui.settings.retries": [
+      "%d"
+    ],
+    "ui.settings.threads": [
+      "%d"
+    ],
+    "ui.settings.threads.hint": [
+      "%d",
+      "%d"
+    ],
+    "ui.source.count": [
+      "%d"
+    ],
+    "ui.summary.line": [
+      "%d",
+      "%d",
+      "%d",
+      "%@"
+    ]
+  },
+  "version": "1.0"
+}

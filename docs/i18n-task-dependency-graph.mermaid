@@ -1,0 +1,18 @@
+%% 任务依赖图
+%% 来源：docs/ARCHITECTURE-I18N.md
+
+graph TD
+    A["T-I01 基准冻结与翻译数据<br/>8份JSON/术语表/字表/快照"]
+    B["T-I02 MacCopyKit 共享层<br/>Resolver/State/Localization防护"]
+    C["T-I03 设置与即时生效<br/>SettingsStore/VM/App/MenuBarLocalizer"]
+    D["T-I04 合并校验脚本与打包链路<br/>sync_catalog/package_app/Info.plist"]
+    E["T-I05 测试与发版验收<br/>119回归 + 8语言专项"]
+
+    A --> D
+    B --> C
+    B --> D
+    C --> D
+    A --> E
+    B --> E
+    C --> E
+    D --> E

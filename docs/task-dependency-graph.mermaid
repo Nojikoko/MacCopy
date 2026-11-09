@@ -1,0 +1,10 @@
+%% 任务依赖图
+%% 来源：docs/ARCHITECTURE.md
+
+graph TD
+    T01["T01 项目基础设施<br/>工程骨架/配置/入口"] --> T02["T02 核心模型与持久化<br/>模型/错误/SQLite/断点"]
+    T01 --> T03["T03 校验算法层<br/>CRC32/MD5/SHA1/SHA256/BLAKE3"]
+    T02 --> T04["T04 IO层与复制引擎<br/>PathWalker/克隆/tee/断点/稀疏"]
+    T03 --> T04
+    T02 --> T05["T05 UI层与Service集成<br/>SwiftUI界面/队列/Service"]
+    T04 --> T05

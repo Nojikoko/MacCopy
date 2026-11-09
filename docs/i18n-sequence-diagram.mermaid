@@ -1,0 +1,70 @@
+%% 完整调用时序图（启动解析 / 复制进行中 / 手动切换）
+%% 来源：docs/ARCHITECTURE-I18N.md
+
+sequenceDiagram
+    autonumber
+    actor U as 用户
+    participant APP as MacCopyApp (MainActor)
+    participant VM as TransferViewModel (MainActor)
+    participant SS as SettingsStore
+    participant RES as LanguageResolver (纯函数)
+    participant ST as LanguageState (NSLock 全局)
+    participant B as 语言 Bundle (lproj)
+    participant KIT as MacCopyKit 后台 worker
+    participant V as SwiftUI 视图树
+    participant MB as MenuBarLocalizer (NSApp.mainMenu)
+    participant E as CopyEngine (actor)
+
+    rect rgb(235, 244, 255)
+    Note over APP,ST: 阶段一 · 启动解析
+    APP->>VM: @StateObject 初始化
+    VM->>SS: load()
+    SS->>SS: 读 13 个旧键（守卫保持不变）
+    alt 无新键且检测到旧偏好（v1.0 升级）
+        SS->>SS: 写 false + zh-Hans，标记 didMigrateFromV10
+        SS->>SS: save()（迁移只发生一次）
+    else 新装
+        SS->>SS: 保持 true / nil（跟随系统）
+    end
+    SS-->>VM: AppSettings
+    VM->>VM: applyLanguage()
+    VM->>RES: resolve(system, manualTag, followsSystem)
+    RES-->>VM: LanguageResolution(language, isSystemFallback)
+    VM->>B: LanguageBundleFactory.make(tag) → Bundle(path: lang.lproj)
+    VM->>ST: set(bundle:tag:)（NSLock 写，全局可见）
+    VM->>MB: refresh()（@MainActor，按快捷键定位菜单项）
+    VM->>V: languageRevision += 1 → .id() 强制重建
+    end
+
+    rect rgb(240, 255, 240)
+    Note over U,E: 阶段二 · 复制任务进行中（引擎事件流与语言完全解耦）
+    U->>VM: 点击开始复制
+    VM->>E: submit(task) / run(batches)
+    activate E
+    loop 传输期间持续
+        E-->>VM: AsyncStream yield TransferEvent
+        VM->>V: @Published 进度/速度刷新
+    end
+    end
+
+    rect rgb(255, 248, 235)
+    Note over U,KIT: 阶段三 · 用户手动切换语言（不中断任务）
+    U->>V: 设置页关闭「跟随系统」并选择 Deutsch
+    V->>VM: settings.manualLanguageTag = "de"
+    VM->>SS: didSet → save(settings)
+    VM->>VM: applyLanguage()
+    VM->>RES: resolve(system, "de", false)
+    RES-->>VM: de
+    VM->>B: 构造 de.lproj Bundle
+    VM->>ST: set(bundle:de, tag:"de")
+    VM->>MB: refresh()（NSApp.mainMenu 标题改为 Deutsch）
+    VM->>V: menuTitles 重算 + languageRevision += 1
+    V-->>U: ≤200ms 内主窗口/设置页/进度窗/Inspector/菜单/Alert 全刷新
+    KIT->>ST: 后台 worker 取 MacCopyError.localizedDescription
+    ST-->>KIT: 返回 de Bundle → 新错误文案为德语
+    E-->>VM: TransferEvent 继续 yield（未中断、进度连续）
+    end
+
+    deactivate E
+    E-->>VM: taskFinished
+    VM->>V: 汇总刷新

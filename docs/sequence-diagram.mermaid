@@ -1,0 +1,89 @@
+%% 完整传输时序图
+%% 来源：docs/ARCHITECTURE.md
+
+sequenceDiagram
+    autonumber
+    participant U as 用户
+    participant V as MainWindow (主线程)
+    participant VM as TransferViewModel (@MainActor)
+    participant E as CopyEngine (actor)
+    participant Q as TaskQueue (actor 内部)
+    participant W as Worker (Task.detached, I/O 线程)
+    participant P as PathWalker / CopyfileBridge
+    participant H as Hasher (MultiHasher)
+    participant R as ResumeStore (磁盘)
+    participant DB as SQLite (磁盘)
+
+    U->>V: 拖放文件 / 点击"添加文件夹"
+    V->>VM: addItems(urls)
+    VM->>VM: 更新待复制列表 (@Published)
+
+    U->>V: 点击"开始"
+    V->>VM: requestStart()
+    VM->>VM: 预检：枚举源 + 计算总字节 + 查可用空间
+    VM->>VM: 弹出确认对话框（源/目标/字节/冲突策略/是否校验/时间戳）
+
+    U->>V: 确认
+    VM->>E: await submit(TransferPlan)
+    E->>Q: 入队
+    E-->>VM: 返回 (taskID, AsyncStream<TransferEvent>)
+    VM->>VM: 启动消费循环 (Task { for await ev in stream { ... } })
+
+    Note over E,Q: —— 调度器阶段（actor 内，串行）——
+    Q->>E: 取下一个任务
+    E->>E: 状态 → running，广播 taskStateChanged
+    E->>E: 切分为 worker 批次（并发数 = effectiveThreadCount）
+
+    Note over W: —— 数据传输阶段（actor 之外，I/O 线程）——
+    E->>W: Task.detached { transfer(fileEntry) }
+    activate W
+
+    W->>P: 打开源（快路径 open / 慢路径 openat 逐级）
+    alt 源可 seek 且已有断点
+        W->>R: 读取 ResumeRecord
+        R-->>W: bytesTransferred + 源签名
+        W->>P: 校验源签名
+        alt 签名不匹配
+            W->>P: 删除 .partial，从 0 开始
+        else 匹配
+            W->>P: 打开 .partial，seek 到 bytesTransferred
+        end
+    end
+
+    W->>P: 打开目标 .partial (O_CREAT|O_WRONLY)
+    W->>P: 打开源 fd（可 seek → O_RDWR，否则 O_RDONLY）
+
+    alt 同卷 APFS 且 enableClone
+        W->>P: copyfile(CLONE) 经 fd 通道
+        P-->>W: WAS_CLONED?
+        W->>H: 源侧摘要（需回读源做哈希）
+        alt 克隆不可用
+            W->>P: 回退 StreamCopier
+        end
+    else 跨卷 / 克隆失败
+        loop 每次读取 buffer (4–64 MiB)
+            W->>P: read(srcFD, buffer)
+            W->>H: MultiHasher.update(buffer)   %% tee 单遍哈希
+            W->>P: write(dstFD, buffer)
+            W->>E: await applyProgress(bytes)    %% 每 N MiB 汇总一次
+        end
+    end
+
+    W->>H: finalize() → 摘要字典
+    W->>R: 原子保存 ResumeRecord（断点持久化）
+    W->>P: 重命名 .partial → 正式文件名
+    W->>P: 写时间戳 (futimens + FileManager.creationDate)
+    W->>E: await apply(fileOutcome)   %% 状态 + 校验结果
+    deactivate W
+
+    alt 校验不通过
+        E->>E: attempt < maxRetries → 重新入队（自动重传 1 次，Q7）
+    else 校验通过
+        E->>E: fileStatus = succeeded
+    end
+
+    E->>DB: 追加文件结果
+    E->>E: 全部完成 → 状态 partialFailed / succeeded
+    E-->>VM: taskFinished(summary)
+    VM->>V: 更新 UI（@Published → SwiftUI 刷新）
+    VM->>U: 失败项可一键重试

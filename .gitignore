@@ -1,0 +1,40 @@
+# ── 构建产物 ──────────────────────────────────────────
+.build/
+*.o
+*.dylib
+*.swiftmodule
+*.swiftdoc
+*.swiftsourceinfo
+dist/
+MacCopy.app/
+
+# ── 临时目录与沙箱残留 ─────────────────────────────────
+.tmp/
+*.tmp
+*.keep
+# WorkBuddy 沙盒临时文件（内容为 "blat"，随机名）
+4hyln986
+5gfdofw8
+6wn3ck09
+MacCopy/l5ncciq_
+docs/0g_1269p
+docs/bk622rx4
+docs/fcxijdqs
+docs/j41fgn1v
+docs/myzp76w8
+docs/sq1f_wfe
+ilkyyjax
+jynsb6dg
+kbqtix_0
+nhvmfuma
+
+# ── 独立验证资产（探针与 QA 日志）─────────────────────
+probe/
+proqa/
+qa_*.log
+
+# ── 工作区元数据 ───────────────────────────────────────
+.workbuddy/
+
+# ── macOS ─────────────────────────────────────────────
+.DS_Store
