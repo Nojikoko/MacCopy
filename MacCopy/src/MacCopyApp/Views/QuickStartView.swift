@@ -1,11 +1,19 @@
 import SwiftUI
+import AppKit
 import UniformTypeIdentifiers
 import MacCopyKit
 
 /// 快速开始页：源拖放区 + 目标选择 + 控制条 + 进度 + 文件列表。
+///
+/// 目录/文件选择一律用 **AppKit `NSOpenPanel`**（v1.2 BugFix）：
+/// SwiftUI 的 `.fileImporter(allowedContentTypes: [.folder])` 在 macOS 上
+/// 选目录不可靠（目录可见但选不中、或选中后不回调 success），会让
+/// 「选择目标文件夹」这个核心功能完全不可用。NSOpenPanel 可显式配置
+/// `canChooseDirectories` / `canChooseFiles`，行为确定。
+///
+/// AD-02：`AppKit` 只出现在 App target；`MacCopyKit` 保持 Foundation-only。
 struct QuickStartView: View {
     @EnvironmentObject private var vm: TransferViewModel
-    @StateObject private var ui = QuickStartUIState()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -30,19 +38,6 @@ struct QuickStartView: View {
             }
         }
         .frame(minWidth: 520)
-        .fileImporter(
-            isPresented: $ui.isChoosingSources,
-            allowedContentTypes: [.item],
-            allowsMultipleSelection: true
-        ) { result in
-            if case .success(let urls) = result { vm.addSources(urls) }
-        }
-        .fileImporter(
-            isPresented: $ui.isChoosingDestination,
-            allowedContentTypes: [.folder]
-        ) { result in
-            if case .success(let url) = result { vm.setDestination(url) }
-        }
     }
 
     // MARK: - 工具条
@@ -50,14 +45,14 @@ struct QuickStartView: View {
     private var toolbar: some View {
         HStack(spacing: 10) {
             Button {
-                ui.isChoosingSources = true
+                chooseSources()
             } label: {
                 Label(Localization.string("ui.add", default: "添加文件"), systemImage: "plus")
             }
             .disabled(vm.isRunning)
 
             Button {
-                ui.isChoosingDestination = true
+                chooseDestination()
             } label: {
                 Label(Localization.string("ui.chooseTarget", default: "选择目标"), systemImage: "folder")
             }
@@ -85,6 +80,47 @@ struct QuickStartView: View {
         .padding(.horizontal, 18)
         .padding(.vertical, 10)
         .background(.bar)
+    }
+
+    // MARK: - AppKit 面板（主线程即时创建）
+
+    /// 选择**目标文件夹**。
+    ///
+    /// - 面板在点按钮时即时创建，不复用长期实例
+    /// - `runModal()` 在 `@MainActor` 上同步运行，成功后直接更新 `@Published`，
+    ///   无需跨 actor 跳转（也就不存在「回调没回到主线程」的问题）
+    /// - 本 App 为 ad-hoc 签名**非沙盒**（Info.plist 无 sandbox entitlement），
+    ///   NSOpenPanel 返回的是普通 file URL，无需 `startAccessingSecurityScopedResource()`
+    @MainActor
+    private func chooseDestination() {
+        let panel = NSOpenPanel()
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.allowsMultipleSelection = false
+        panel.canCreateDirectories = true
+        panel.prompt = Localization.string("ui.chooseTarget", default: "选择目标")
+        panel.message = Localization.string("ui.section.target", default: "目标位置")
+        guard panel.runModal() == .OK, let url = panel.url else { return }
+        vm.setDestination(url)
+    }
+
+    /// 选择**源文件/文件夹**（可多选，两者都要能选）。
+    ///
+    /// 同 `chooseDestination()`，把选源也统一到确定性 AppKit 路径：
+    /// `.fileImporter(allowedContentTypes: [.item])` 与目标面板是同一 SwiftUI API
+    /// 家族，目录选中不回调的失败模式无法在本机 GUI 自动化验证，
+    /// 不留下第二个不可验证的风险点。
+    @MainActor
+    private func chooseSources() {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = true
+        panel.allowsMultipleSelection = true
+        panel.canCreateDirectories = false
+        panel.prompt = Localization.string("ui.add", default: "添加文件")
+        panel.message = Localization.string("ui.section.source", default: "源文件")
+        guard panel.runModal() == .OK, !panel.urls.isEmpty else { return }
+        vm.addSources(panel.urls)
     }
 
     // MARK: - 源卡片
@@ -151,7 +187,7 @@ struct QuickStartView: View {
             Text(Localization.string("ui.drop.hint", default: "把文件或文件夹拖到这里"))
                 .foregroundStyle(.secondary)
             Button(Localization.string("ui.drop.choose", default: "或点此选择…")) {
-                ui.isChoosingSources = true
+                chooseSources()
             }
             .buttonStyle(.link)
         }
@@ -171,7 +207,7 @@ struct QuickStartView: View {
                     .foregroundStyle(vm.destination == nil ? .secondary : .primary)
                 Spacer()
                 Button(Localization.string("ui.change", default: "更改")) {
-                    ui.isChoosingDestination = true
+                    chooseDestination()
                 }
                 .disabled(vm.isRunning)
             }
@@ -246,12 +282,4 @@ struct QuickStartView: View {
             }
         }
     }
-}
-
-
-/// 快速开始页的暂态 UI 状态（用 ObservableObject 而非 @State，规避 SwiftUI 宏）。
-@MainActor
-final class QuickStartUIState: ObservableObject {
-    @Published var isChoosingSources = false
-    @Published var isChoosingDestination = false
 }

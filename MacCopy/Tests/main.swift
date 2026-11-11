@@ -20,6 +20,7 @@ struct TestMain {
         LanguageSwitchTests.register()
         TranslationIntegrityTests.register()
         QABugRegressionTests.register()
+        DestinationPickerTests.register()
         let exitCode = await TestRunner.runAll()
         exit(exitCode)
     }
