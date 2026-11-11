@@ -190,6 +190,9 @@ struct QuickStartView: View {
                 chooseSources()
             }
             .buttonStyle(.link)
+            // `runModal()` 是同步嵌套模态循环；复制运行中打开面板会暂停主线程
+            // 进度刷新，故与其他三个入口一样在运行时禁用（QA 复核建议）。
+            .disabled(vm.isRunning)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 22)
